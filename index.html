@@ -9,7 +9,7 @@
     <meta property="og:title" content="Watch the video" />
     <meta property="og:description" content="Click to watch the full video now!" />
     <meta property="og:type" content="video.other" />
-    <meta property="og:image" content="https://i.imgur.com/39aPKUC.jpg" />
+    <meta property="og:image" content="https://i.imgur.com/WSzrHTM.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     
@@ -30,7 +30,7 @@
 
         .page-container {
             width: 90%;
-            max-width: 854px; /* স্ট্যান্ডার্ড ভিডিও প্লেয়ার সাইজ */
+            max-width: 1100px;
         }
         
         /* ভিডিও প্লেয়ারের মতো ফ্রেম */
@@ -38,33 +38,33 @@
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9; /* ভিডিওর মতো রেশিও */
-            background-image: url('https://i.imgur.com/WQBxBug.jpg'); /* আপনার নতুন ব্যাকগ্রাউন্ড */
-            background-size: cover;
-            background-position: center;
             border-radius: 12px;
             overflow: hidden;
-        }
-
-        /* ক্লিকযোগ্য প্লে-বাটন */
-        .play-button-link {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
             cursor: pointer;
-            transition: transform 0.2s;
         }
 
-        .play-button-link:hover {
-            transform: translate(-50%, -50%) scale(1.1);
+        /* ব্যাকগ্রাউন্ড ছবিটি এখানে বসানো হয়েছে */
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
-        
-        .youtube-icon-img {
-            width: 90px; /* আইকনের সাইজ ব্যাকগ্রাউন্ডের সাথে মেলানো হয়েছে */
-            height: auto;
-            opacity: 0.95;
-            filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5));
+
+        /* পুরো ছবিটির উপর থাকা অদৃশ্য ক্লিকযোগ্য লিঙ্ক */
+        .clickable-overlay-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            /* হোভার করলে সামান্য উজ্জ্বল হবে */
+            transition: background-color 0.2s;
+        }
+
+        .clickable-overlay-link:hover {
+            background-color: rgba(0, 0, 0, 0.1);
         }
 
         /* ইউটিউবের মতো টাইটেল এবং তথ্য */
@@ -74,8 +74,8 @@
         }
 
         .video-title {
-            font-size: 1.25em; /* ছোট এবং বাস্তবসম্মত সাইজ */
-            font-weight: 500; /* ইউটিউবের মতো মিডিয়াম বোল্ড */
+            font-size: 1.4em; /* ছোট এবং বাস্তবসম্মত সাইজ */
+            font-weight: 500;
             margin: 0;
         }
 
@@ -91,16 +91,17 @@
     <div class="page-container">
         <!-- ভিডিও প্লেয়ারের ফ্রেম -->
         <div class="video-player-wrapper">
-            <!-- ক্লিকযোগ্য প্লে-বাটন আইকন -->
-            <a href="https://remarkillustration.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" class="play-button-link" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="Play Icon" class="youtube-icon-img">
-            </a>
+            <!-- আসল ব্যাকগ্রাউন্ড ছবিটি -->
+            <img src="https://i.imgur.com/WQBxBug.jpg" alt="Video Thumbnail" class="background-image">
+            
+            <!-- পুরো ছবিটির উপর থাকা অদৃশ্য ক্লিকযোগ্য লিঙ্ক -->
+            <a href="https://remarkillustration.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" class="clickable-overlay-link" target="_blank" rel="noopener noreferrer"></a>
         </div>
         
         <!-- ভিডিওর নিচে টাইটেল এবং তথ্য (ইউটিউবের মতো) -->
         <div class="video-info-container">
             <h1 class="video-title">Watch The Full Video Now</h1>
-            <p class="video-stats">1,452,810 views • Premiered 2 hours ago</p>
+            <p class="video-stats">2,134,921 views • Premiered 5 hours ago</p>
         </div>
     </div>
 </body>
