@@ -5,58 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watch The Full Video Now</title>
 
-    <!-- =================================================================== -->
-    <!-- == ফেসবুক প্রিভিউর জন্য (বইয়ের কভার) == -->
-    <!-- =================================================================== -->
+    <!-- Facebook OG Tags (ফেসবুক প্রিভিউর জন্য) -->
     <meta property="og:title" content="Watch the video" />
     <meta property="og:description" content="Click to watch the full video now!" />
     <meta property="og:type" content="video.other" />
-    
-    <!-- আপনার দেওয়া নতুন ছবিটি (v7NGDBx.jpg) এখানে যোগ করা হয়েছে -->
-    <meta property="og:image" content="https://i.imgur.com/v7NGDBx.jpg" />
-    
+    <meta property="og:image" content="https://i.imgur.com/39aPKUC.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <!-- =================================================================== -->
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Roboto', sans-serif; color: #ffffff; overflow: hidden; position: relative; }
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            font-family: 'Roboto', sans-serif; color: #ffffff;
+            overflow: hidden; position: relative;
+        }
         
-        /* ================================================================ */
-        /* == ল্যান্ডিং পেজের ব্যাকগ্রাউন্ড (বইয়ের ভেতরের পাতা) == */
-        /* ================================================================ */
+        /* ল্যান্ডিং পেজের ব্যাকগ্রাউন্ড */
         body::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;
-            
-            /* আপনার দেওয়া নতুন ছবিটি (v7NGDBx.jpg) এখানেও যোগ করা হয়েছে */
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1;
             background-image: url('https://i.imgur.com/v7NGDBx.jpg');
-            
             background-size: cover; background-position: center;
         }
 
-        .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 0; }
-        .container { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; position: relative; z-index: 1; }
-        .headline { font-size: 2.8em; font-weight: 700; margin-bottom: 40px; color: #eee; line-height: 1.3; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); }
-        .youtube-link { display: inline-block; transition: transform 0.2s ease-in-out; animation: pulse 1.5s infinite; border-radius: 50%; }
-        .youtube-link:hover { transform: scale(1.1); animation-play-state: paused; }
-        .youtube-icon { width: 180px; max-width: 50vw; height: auto; }
-        .instruction-text { margin-top: 30px; font-size: 1.4em; color: #b0b0b0; text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7); }
-        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 43, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(255, 0, 43, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 43, 0); } }
-        @media (max-width: 600px) { .headline { font-size: 2.2em; } .youtube-icon { width: 150px; } .instruction-text { font-size: 1.2em; } }
+        /* ডার্ক ওভারলে */
+        .overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* ওভারলে একটু হালকা করা হয়েছে */
+            z-index: 2;
+        }
+
+        /* পেজের লেখা এবং আইকন রাখার কন্টেইনার */
+        .content-container {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ক্লিকযোগ্য ইউটিউব আইকন (মূল আকর্ষণ) */
+        .clickable-icon-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* আইকনটিকে ঠিক মাঝখানে বসানোর জন্য */
+            transform: translate(-50%, -50%);
+            z-index: 4; /* এটি সবার উপরে থাকবে */
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .clickable-icon-link:hover {
+            transform: translate(-50%, -50%) scale(1.1); /* হোভার করলে বড় হবে */
+        }
+        
+        .youtube-icon-img {
+            width: 120px; /* আইকনের সাইজ ঠিক করা হয়েছে */
+            height: auto;
+            opacity: 0.85; /* সামান্য স্বচ্ছ করা হয়েছে, যা বাস্তবসম্মত লাগে */
+        }
+        
+        /* শিরোনাম এবং নিচের লেখা */
+        .headline {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            margin: 0;
+            position: absolute;
+            top: 20%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .instruction-text {
+            font-size: 1.3em;
+            color: #ddd;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+            margin: 0;
+            position: absolute;
+            bottom: 20%;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .headline { font-size: 2em; top: 15%; }
+            .youtube-icon-img { width: 100px; }
+            .instruction-text { font-size: 1.1em; bottom: 15%; }
+        }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
-    <div class="container">
+
+    <!-- ক্লিকযোগ্য ইউটিউব আইকন, যা ব্যাকগ্রাউন্ডের আইকনকে ঢেকে ফেলবে -->
+    <a href="https://remarkillustration.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" class="clickable-icon-link" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Icon" class="youtube-icon-img">
+    </a>
+
+    <!-- পেজের লেখাগুলো এখানে থাকবে -->
+    <div class="content-container">
         <h1 class="headline">Watch The Full Video Now</h1>
-        <a href="https://remarkillustration.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" class="youtube-link" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Icon" class="youtube-icon">
-        </a>
-        <p class="instruction-text">Click the YouTube icon to play</p>
+        <p class="instruction-text">Click the icon to play</p>
     </div>
 </body>
 </html>
