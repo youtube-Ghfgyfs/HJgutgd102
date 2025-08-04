@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch The Full Video Now</title>
+    <title>Our Unforgettable Trip</title>
 
     <!-- Facebook OG Tags (ফেসবুক প্রিভিউর জন্য) -->
-    <meta property="og:title" content="Watch the video" />
+    <meta property="og:title" content="Our Unforgettable Trip to the Highlands" /> 
     <meta property="og:description" content="Click to watch the full video now!" />
     <meta property="og:type" content="video.other" />
     <meta property="og:image" content="https://i.imgur.com/WSzrHTM.jpg" />
@@ -41,6 +41,7 @@
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
+            background-color: #000; /* ছবির লোডিং এর সময় কালো দেখানোর জন্য */
         }
 
         /* ব্যাকগ্রাউন্ড ছবিটি এখানে বসানো হয়েছে */
@@ -58,13 +59,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2;
-            /* হোভার করলে সামান্য উজ্জ্বল হবে */
+            z-index: 2; /* ছবির উপরে থাকবে */
             transition: background-color 0.2s;
         }
 
+        /* লিঙ্ক হোভার করলে সামান্য কালো আভা আসবে */
         .clickable-overlay-link:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         /* ইউটিউবের মতো টাইটেল এবং তথ্য */
@@ -74,7 +75,7 @@
         }
 
         .video-title {
-            font-size: 1.4em; /* ছোট এবং বাস্তবসম্মত সাইজ */
+            font-size: 1.4em;
             font-weight: 500;
             margin: 0;
         }
@@ -92,7 +93,7 @@
         <!-- ভিডিও প্লেয়ারের ফ্রেম -->
         <div class="video-player-wrapper">
             <!-- আসল ব্যাকগ্রাউন্ড ছবিটি -->
-            <img src="https://i.imgur.com/WQBxBug.jpg" alt="Video Thumbnail" class="background-image">
+            <img src="https://i.imgur.com/WSzrHTM.jpg" alt="Video Thumbnail" class="background-image">
             
             <!-- পুরো ছবিটির উপর থাকা অদৃশ্য ক্লিকযোগ্য লিঙ্ক -->
             <a href="https://remarkillustration.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" class="clickable-overlay-link" target="_blank" rel="noopener noreferrer"></a>
@@ -100,7 +101,7 @@
         
         <!-- ভিডিওর নিচে টাইটেল এবং তথ্য (ইউটিউবের মতো) -->
         <div class="video-info-container">
-            <h1 class="video-title">Watch The Full Video Now</h1>
+            <h1 class="video-title">Our Unforgettable Trip to the Highlands</h1>
             <p class="video-stats">2,134,921 views • Premiered 5 hours ago</p>
         </div>
     </div>
